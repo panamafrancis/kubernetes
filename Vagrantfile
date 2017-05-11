@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
     launcher.vm.hostname = 'launcher'
     launcher.vm.provision "shell", path: "setup.sh"
     launcher.vm.box_url = "bento/ubuntu-16.04"
-    launcher.vm.network :private_network, ip: "192.168.56.104"
+    launcher.vm.network :private_network, ip: "192.168.56.105"
     launcher.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 1000 ]
@@ -59,7 +59,7 @@ Vagrant.configure("2") do |config|
     node2.vm.hostname = 'node2'
     node2.vm.provision "shell", path: "setup.sh"
     node2.vm.box_url = "bento/ubuntu-16.04"
-    node2.vm.network :private_network, ip: "192.168.56.105"
+    node2.vm.network :private_network, ip: "192.168.56.104"
     node2.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 500 ]

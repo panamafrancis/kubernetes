@@ -51,13 +51,19 @@ EOM
 
 chmod 600 /root/.ssh/id_rsa
 
+#Install kubectl
+curl -s -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
+
 #Get k8s installer files
 hostname=`hostname`
 if [ $hostname == "launcher" ]
 then
 apt-get install -y git
 cd /root
-git clone https://github.com/nitinmidha/kube-cluster.git
+git clone https://github.com/lukeshaughnessy/kubernetes.git
 fi
 
 
