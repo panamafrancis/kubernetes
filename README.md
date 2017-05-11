@@ -4,5 +4,5 @@
 - cd into the repo and do "vagrant up", this will create five virtual machines.
 - Do "vagrant status" to get a list of the new VMs.
 - Do "vagrant ssh launcher" and sudo -i to root.
-- run the script "deploy-ha-cluster.sh" to install Kubernetes cluster.
+- run the script "~/kubernetes/deploy-ha-cluster.sh" to install Kubernetes cluster.
 
