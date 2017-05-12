@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
     node1.vm.network :private_network, ip: "192.168.56.103"
     node1.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 2000]
+      v.customize ["modifyvm", :id, "--memory", 1000]
       v.customize ["modifyvm", :id, "--name", "node1"]
     end
   end
@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
     launcher.vm.network :private_network, ip: "192.168.56.105"
     launcher.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 1000 ]
+      v.customize ["modifyvm", :id, "--memory", 500 ]
       v.customize ["modifyvm", :id, "--name", "config"]
     end
   end
@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
     node2.vm.network :private_network, ip: "192.168.56.104"
     node2.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 500 ]
+      v.customize ["modifyvm", :id, "--memory", 1000 ]
       v.customize ["modifyvm", :id, "--name", "node2"]
     end
   end
