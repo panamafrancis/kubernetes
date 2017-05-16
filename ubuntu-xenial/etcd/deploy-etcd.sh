@@ -36,15 +36,15 @@ function configure-services(){
     export ETCD_INITIAL_CLUSTER=${4:-}
     export CURRENT_NODE_IP=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
     
-    
-    
     sudo mkdir -p /etc/kubernetes
+
+    # set the etcd environment variables
     envsubst < ~/ha-kube/etcd/environment/etcd.env | sudo tee /etc/kubernetes/etcd.env
+    # set the etcdctl environment variables
+    envsubst < ~/ha-kube/etcd/environment/etcdctl.env | sudo tee /etc/kubernetes/etcdctl.env
+    cat /etc/kubernetes/etcdctl.env >> ~/.bashrc
 
     sudo cp ~/ha-kube/etcd/systemd/* /etc/systemd/system/
-
-    
-    
     sudo systemctl enable etcd.service
     sudo sudo systemctl reload-or-restart etcd.service
 }
