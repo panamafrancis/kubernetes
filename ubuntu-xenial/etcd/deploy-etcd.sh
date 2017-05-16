@@ -43,6 +43,7 @@ function configure-services(){
     # set the etcdctl environment variables
     envsubst < ~/ha-kube/etcd/environment/etcdctl.env | sudo tee /etc/kubernetes/etcdctl.env
     cat /etc/kubernetes/etcdctl.env >> ~/.bashrc
+    source /etc/kubernetes/etcdctl.env
 
     sudo cp ~/ha-kube/etcd/systemd/* /etc/systemd/system/
     sudo systemctl enable etcd.service
